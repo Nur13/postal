@@ -1,6 +1,6 @@
 // This file contains material supporting section 2.8 of the textbook:
 // "Object Oriented Software Engineering" and is issued under the open-source
-// license found at www.lloseng.com 
+// license found at www.lloseng.com
 
 package postalcode;
 
@@ -16,7 +16,7 @@ package postalcode;
 public class CanadianPostalCode extends PostalCode
 {
   //Constructors ****************************************************
-  
+
   /**
    * Constructs a Canadian postal code object.
    *
@@ -26,9 +26,9 @@ public class CanadianPostalCode extends PostalCode
   {
     super(code);
   }
-  
+
   //Instance methods ************************************************
-  
+
   /**
    * Returns the country of origin of the code.
    *
@@ -38,7 +38,7 @@ public class CanadianPostalCode extends PostalCode
   {
     return "Canadian";
   }
-  
+
   /**
    * This method will verifiy the validity of the postal code.
    *
@@ -54,21 +54,21 @@ public class CanadianPostalCode extends PostalCode
       || (!Character.isLetter(postCode.charAt(2)))
       || (!Character.isWhitespace(postCode.charAt(3)))
       || (!Character.isDigit(postCode.charAt(4)))
-      || (!Character.isLetter(postCode.charAt(5))) 
+      || (!Character.isLetter(postCode.charAt(5)))
       || (!Character.isDigit(postCode.charAt(6)))
       || (!Character.isUpperCase(postCode.charAt(0)))
       || (!Character.isUpperCase(postCode.charAt(2)))
       || (!Character.isUpperCase(postCode.charAt(5)))
-      || (postCode.length() > 7)) 
+      || (postCode.length() > 7))
     {
       throwException("Sequence of characters not like A9A 9A9");
     }
     else
     {
       setDestination(computeDestination());
-    }    
+    }
   }
-  
+
   /**
    * This method will return the destination of the postal code.
    *
@@ -77,8 +77,9 @@ public class CanadianPostalCode extends PostalCode
    */
   private String computeDestination() throws PostalCodeException
   {
+      String x;
     char firstLetter;  // first letter designates the destination
-    
+
     //If the postal code is valid, get its first letter
     firstLetter = (char)getCode().charAt(0);
 
@@ -90,37 +91,37 @@ public class CanadianPostalCode extends PostalCode
       case 'B':
         return "in Nova Scotia";
       case 'C':
-        return "in PEI";        
+        return "in PEI";
       case 'E':
-        return "in New Brunswick";        
+        return "in New Brunswick";
       case 'G':
-        return "in Quebec";        
+        return "in Quebec";
       case 'H':
-        return "in Metropolitan Montreal";        
+        return "in Metropolitan Montreal";
       case 'J':
-        return "in Western Quebec";        
+        return "in Western Quebec";
       case 'K':
-        return "in Eastern Ontario";        
+        return "in Eastern Ontario";
       case 'L':
-        return "in Central Ontario";        
+        return "in Central Ontario";
       case 'M':
-        return "in Metropolitan Toronto";        
+        return "in Metropolitan Toronto";
       case 'N':
-        return "in Southwestern Ontario";        
+        return "in Southwestern Ontario";
       case 'P':
-        return "in Northern Ontario";        
+        return "in Northern Ontario";
       case 'R':
-        return "in Manitoba";        
+        return "in Manitoba";
       case 'S':
-        return "in Saskatchewan";        
+        return "in Saskatchewan";
       case 'T':
-        return "in Alberta";        
+        return "in Alberta";
       case 'V':
-        return "in British Columbia";        
+        return "in British Columbia";
       case 'X':
-        return "in the Northwest Territories or Nunavut";        
+        return "in the Northwest Territories or Nunavut";
       case 'Y':
-        return "in the Yukon Territories";        
+        return "in the Yukon Territories";
       default:
         throwException("Invalid first letter");
     }
